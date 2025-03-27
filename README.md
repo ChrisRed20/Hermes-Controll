@@ -1,110 +1,95 @@
-# Proyecto Ionic: Hermes-Controll
+---
 
-## Descripción
+### **Archivo: README.md**  
 
-Hermes-Controll es una aplicación móvil desarrollada con Ionic para gestionar rutas de camión YOVOY.
+```md
+# 🚀 Proyecto Ionic
 
-## Requisitos
+Este proyecto está desarrollado con **Ionic** y utiliza **Capacitor** para la integración con Android.  
 
-- Node.js (versión 12.x o superior)
-- Ionic CLI (versión 6.x o superior)
-- Git
+## 📌 Requisitos previos
 
-## Configuración del Entorno de Desarrollo
+Antes de comenzar, asegúrate de tener instaladas las siguientes herramientas:
 
-### Instalar Ionic CLI
-```bash
-npm install -g @ionic/cli
-```
+- [Node.js](https://nodejs.org/) (versión recomendada: LTS)
+- [Ionic CLI](https://ionicframework.com/docs/cli)  
+  ```sh
+  npm install -g @ionic/cli
+  ```
+- [Capacitor](https://capacitorjs.com/)  
+  ```sh
+  npm install @capacitor/core @capacitor/cli
+  ```
+- [Android Studio](https://developer.android.com/studio)  
+- Java JDK 11 o superior  
+- Variables de entorno configuradas para `ANDROID_HOME` y `JAVA_HOME`
 
-### Instalar Capacitor
-```bash
-npm install @capacitor/core @capacitor/cli
-npx cap sync
-```
+## 📂 Instalación del proyecto
 
-## Instalación
+1. **Clonar el repositorio**  
+   ```sh
+   git clone https://github.com/tu-usuario/tu-repositorio.git
+   cd tu-repositorio
+   ```
 
-1. Clona el repositorio:
+2. **Instalar dependencias**  
+   ```sh
+   npm install
+   ```
 
-    ```sh
-    git clone https://github.com/ChrisRed20/Hermes-Controll.git
-    cd Hermes-Controll
-    ```
+## ⚡ Ejecutar la aplicación en el navegador
 
-2. Instala las dependencias:
-
-    ```sh
-    npm install
-    ```
-
-3. Ejecuta la aplicación en modo de desarrollo:
-
-    ```sh
-    ionic serve
-    ```
-
-## Compilación
-
-Para compilar la aplicación para producción:
-
+Para probar la aplicación en el navegador, usa el siguiente comando:  
 ```sh
-ionic build --prod
+ionic serve
 ```
+Esto abrirá la app en el navegador con recarga en vivo.
 
+## 📱 Construcción para Android
 
-## Deploy a android 
+Para ejecutar la aplicación en un dispositivo o emulador Android, sigue estos pasos:
 
-Para probar la funcionalidad nativa es necesaria la instalación de Android Studio y una versión mínima de Java 21
+1. **Agregar la plataforma Android (si aún no está agregada)**  
+   ```sh
+   ionic capacitor add android
+   ```
 
-1. Ejecutar el comando para hacer build al proyecto si aún no se ha hecho
+2. **Construir la aplicación y sincronizar con Android**  
+   ```sh
+   ionic build
+   ionic capacitor copy android
+   ```
 
+3. **Abrir el proyecto en Android Studio**  
+   ```sh
+   ionic capacitor open android
+   ```
+
+4. **Ejecutar en un dispositivo o emulador**  
+   - Abre **Android Studio**  
+   - Conéctalo a un dispositivo físico o emulador  
+   - Haz clic en **Run ▶️**
+
+## 🔄 Sincronizar cambios con Android
+
+Cada vez que hagas cambios en la aplicación, usa:  
 ```sh
-ionic build --prod
+ionic build
+ionic capacitor sync android
 ```
+Esto actualizará el código en la carpeta `android` sin necesidad de eliminarla y volver a agregarla.
 
-Esto creará una carpeta llamada www
+## 🛠 Solución de problemas
 
-2. ejecutarar el comando para agregar la carpeta de android 
+Si encuentras errores en Android Studio, prueba lo siguiente:
 
-```sh
-npx cap add android
-```
-
-3. abrir el proyecto en android studio 
-
-```sh
-npx cap open android
-```
-
-IMPORTANTE:
-
-Cada que se hagan cambios en el código ionic debes sincronizar los cambios a la carpeta android.
-
-1.
-```sh
-ionic build --prod
-```
-
-2.
-```sh
-npx cap sync android 
-```
-## Requisitos Previos
-- Node.js (versión 16 o superior)
-- npm (versión 8 o superior)
-- Ionic CLI
-- Android Studio
-- SDK de Android
-
-## Solución de Problemas
-
-- Asegúrate de tener las versiones correctas de Node.js y npm
-- Verifica que Android Studio esté correctamente configurado
-- Revisa que todas las dependencias estén instaladas
-- Limpia el proyecto con `ionic cap clean`
-
-## Dependencias Principales
-- Ionic
-- Angular
-- Capacitor
+- Asegúrate de tener instalados los paquetes de Android SDK en Android Studio.
+- Verifica que tienes un emulador configurado correctamente.
+- Si hay errores de permisos, corre:
+  ```sh
+  npx cap sync android
+  ```
+- Si tienes problemas con dependencias de Gradle, ejecuta:
+  ```sh
+  cd android && ./gradlew clean
+  ```
