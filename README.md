@@ -1,8 +1,3 @@
----
-
-### **Archivo: README.md**  
-
-```md
 # 🚀 Proyecto Ionic
 
 Este proyecto está desarrollado con **Ionic** y utiliza **Capacitor** para la integración con Android.  
